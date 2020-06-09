@@ -1,6 +1,6 @@
 SQL no Node.js com Sequelize
 
-Esse projeto contem um e arquitetura para criar um CRUD padrão utilizando banco de dados postgres atravez do ORM sequelize!
+Esse projeto contem uma e arquitetura para criar um CRUD padrão utilizando banco de dados postgres atravez do ORM sequelize!
 
 👨🏼‍💻 Desenvolvedor
 
