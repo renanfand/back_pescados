@@ -1,15 +1,17 @@
 const express = require('express')
-const Resource = require('../resource/resourceDefault')
+const ControllerCRUD = require('../controller/controllerCRUD')
+const ControllerGereric = require('../controller/controllerGeneric')
 const Agricultor = require('../models/Agricultor')
 
 let routes = express.Router();
 
 //CRUD BASICO
-routes.post('/agricultor', (req, res) => Resource.create(req, res, Agricultor));
-routes.get('/agricultores', (req, res) => Resource.findAll(req, res, Agricultor));
-routes.get('/agricultor/:id', (req, res) => Resource.read(req, res, Agricultor));
-routes.put('/agricultor/:id', (req, res) => Resource.update(req, res, Agricultor));
-routes.delete('/agricultor/:id', (req, res) => Resource.delete(req, res, Agricultor));
+routes.post('/agricultor', (req, res) => ControllerCRUD.create(req, res, Agricultor));
+routes.get('/agricultor/:id', (req, res) => ControllerCRUD.read(req, res, Agricultor));
+routes.put('/agricultor/:id', (req, res) => ControllerCRUD.update(req, res, Agricultor));
+routes.delete('/agricultor/:id', (req, res) => ControllerCRUD.delete(req, res, Agricultor));
 
+
+routes.get('/agricultores', (req, res) => ControllerGereric.findAll(req, res, Agricultor));
 
 module.exports = routes;

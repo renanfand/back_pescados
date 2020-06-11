@@ -1,4 +1,5 @@
-const CRUD = require('../controller/crudDefault');
+const CRUD = require('../sequelize/sequelizeCRUD');
+const Controller = require('../sequelize/sequelizeGeneric');
 const Util = require('../Util/UtilDefault');
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
     try {
       
       const objCriacao = req.body;
-      let response = await CRUD.create(objCriacao, entity);
+      const response = await CRUD.create(objCriacao, entity);
 
       if (!response) {
         return Util.returnErroCreate(response);
@@ -21,26 +22,9 @@ module.exports = {
     }
   },
 
-  async findAll(req, res, entity) {
-    try {
-      
-      const response = await CRUD.findAll(entity);
-
-      if (!response) {
-        return Util.returnErroShowAll(response);
-      }
-
-      return res.status(200).json(response);
-    
-    } 
-    catch (error) {
-      return Util.returnErroShowAll(res, error);
-    }
-  },
-
   async read(req, res, entity) {
     try {
-      let {id} = req.params;
+      const {id} = req.params;
       const response = await CRUD.read(id, entity);
 
       if (!response) {
@@ -57,7 +41,7 @@ module.exports = {
   
   async update(req, res, entity) {
     try {
-      let {id} = req.params;
+      const {id} = req.params;
       const objEdicao = req.body;
 
       const response = await CRUD.update(objEdicao, id, entity);
@@ -76,7 +60,7 @@ module.exports = {
 
   async delete(req, res, entity) {
     try {
-      let {id} = req.params;
+      const {id} = req.params;
       const response = await CRUD.delete(id, entity);
 
       if (!response) {
@@ -90,4 +74,5 @@ module.exports = {
       return Util.returnErroDelete(res, error);
     }
   },
+
 };

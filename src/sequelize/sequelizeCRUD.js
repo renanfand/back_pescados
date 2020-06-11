@@ -4,10 +4,6 @@ module.exports = {
     return await entity.create(objCriacao);
   },
 
-  async findAll(entity) {
-    return await entity.findAll();
-  },
-
   async read(id, entity) {
     return await entity.findByPk(id);
   },
