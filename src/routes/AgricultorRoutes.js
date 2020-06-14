@@ -12,6 +12,6 @@ routes.put('/agricultor/:id', (req, res) => ControllerCRUD.update(req, res, Agri
 routes.delete('/agricultor/:id', (req, res) => ControllerCRUD.delete(req, res, Agricultor));
 
 
-routes.get('/agricultores', (req, res) => ControllerGereric.findAll(req, res, Agricultor));
+routes.get('/agricultor', (req, res) => ControllerGereric.findAll(req, res, Agricultor));
 
 module.exports = routes;
