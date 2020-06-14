@@ -16,7 +16,7 @@ class Racao extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Usuario, {foreignKey:  'idAgricultor', targetKey: 'id', as: 'agricultor'})
+    this.belongsTo(models.Agricultor, {foreignKey:  'idAgricultor', targetKey: 'id', as: 'agricultor'})
   }
 
 }

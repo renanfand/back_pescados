@@ -15,8 +15,8 @@ class Peixe extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Usuario, {foreignKey:  'idTipoPeixe', targetKey: 'id', as: 'tipoPeixe'})
-    this.belongsTo(models.Usuario, {foreignKey:  'idAgricultor', targetKey: 'id', as: 'agricultor'})
+    this.belongsTo(models.TipoPeixe, {foreignKey:  'idTipoPeixe', targetKey: 'id', as: 'tipoPeixe'})
+    this.belongsTo(models.Agricultor, {foreignKey:  'idAgricultor', targetKey: 'id', as: 'agricultor'})
   }
 
 }

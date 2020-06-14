@@ -10,8 +10,9 @@ const connection = new Sequelize(dbConfig);
 Agricultor.init(connection);
 TipoPeixe.init(connection);
 Racao.init(connection);
+Peixe.init(connection);
 
-Racao.associate(connection);
-Peixe.associate(connection);
+Racao.associate(connection.models);
+Peixe.associate(connection.models);
 
 module.exports = connection;
