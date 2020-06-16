@@ -13,5 +13,6 @@ routes.delete('/racao/:id', (req, res) => ControllerCRUD.delete(req, res, Racao)
 
 
 routes.get('/racao', (req, res) => ControllerGereric.findAll(req, res, Racao));
+routes.get('/racoes/:idAgricultor', (req, res) => ControllerGereric.findRacaoByAgricultor(req, res, Racao));
 
 module.exports = routes;

@@ -13,5 +13,6 @@ routes.delete('/peixe/:id', (req, res) => ControllerCRUD.delete(req, res, Peixe)
 
 
 routes.get('/peixe', (req, res) => ControllerGereric.findAll(req, res, Peixe));
+routes.get('/peixes/:idAgricultor', (req, res) => ControllerGereric.findPeixeByAgricultor(req, res, Peixe));
 
 module.exports = routes;

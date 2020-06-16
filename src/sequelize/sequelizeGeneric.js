@@ -1,7 +1,11 @@
 
 module.exports = {
 
-  async findAll(entity) {
-    return await entity.findAll();
+  async findAll(entity, params) {
+    if (!params) {
+      return await entity.findAll();
+    }
+    
+    return await entity.findAll({ where: params });
   },
 };
