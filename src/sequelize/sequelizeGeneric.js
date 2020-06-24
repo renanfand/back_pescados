@@ -2,10 +2,13 @@
 module.exports = {
 
   async findAll(entity, params) {
-    if (!params) {
-      return await entity.findAll();
-    }
-    
     return await entity.findAll({ where: params });
+  },
+
+  async findAllAssociate(entity, params, associate) {
+    return await entity.findAll({
+      where: params,
+      include: { association: associate }
+    });
   },
 };

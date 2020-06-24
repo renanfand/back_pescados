@@ -6,13 +6,13 @@ const PeixeRoutes = require('./routes/PeixeRoutes');
 
 let routes = express.Router();
 
+
 //ROTAS AGRICULTOR
 routes.post('/agricultor', AgricultorRoutes);
 routes.get('/agricultor', AgricultorRoutes);
 routes.get('/agricultor/:id', AgricultorRoutes);
 routes.put('/agricultor/:id', AgricultorRoutes);
 routes.delete('/agricultor/:id', AgricultorRoutes);
-
 routes.get('/agricultores/:tpAgricultor', AgricultorRoutes);
 
 

@@ -5,7 +5,7 @@ module.exports = {
 
   async findAll(req, res, entity) {
     try {
-      const response = await SequelizeGeneric.findAll(entity);
+      const response = await SequelizeGeneric.findAll(entity, req.params);
 
       if (!response) {
         return Util.returnErroShowAll(response);
@@ -20,26 +20,13 @@ module.exports = {
   },
 
   async findAgricultoresByTipo(req, res, entity) {
-    try {
-      const tpAgricultor = req.params;
-      const response = await SequelizeGeneric.findAll(entity, tpAgricultor);
-
-      if (!response) {
-        return Util.returnErroShowAll(response);
-      }
-
-      return res.status(200).json(response);
-
-    }
-    catch (error) {
-      return Util.returnErroShowAll(res, error);
-    }
+    return this.findAll(req, res, entity);
   },
 
   async findPeixeByAgricultor(req, res, entity) {
     try {
       const idAgricultor = req.params;
-      const response = await SequelizeGeneric.findAll(entity, idAgricultor);
+      const response = await SequelizeGeneric.findAllAssociate(entity, idAgricultor, 'tipoPeixe');
 
       if (!response) {
         return Util.returnErroShowAll(response);
@@ -54,20 +41,7 @@ module.exports = {
   },
 
   async findRacaoByAgricultor(req, res, entity) {
-    try {
-      const idAgricultor = req.params;
-      const response = await SequelizeGeneric.findAll(entity, idAgricultor);
-
-      if (!response) {
-        return Util.returnErroShowAll(response);
-      }
-
-      return res.status(200).json(response);
-
-    }
-    catch (error) {
-      return Util.returnErroShowAll(res, error);
-    }
+    return this.findAll(req, res, entity);
   },
-  
+
 };

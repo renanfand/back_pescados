@@ -11,7 +11,6 @@ routes.get('/tipopeixe/:id', (req, res) => ControllerCRUD.read(req, res, TipoPei
 routes.put('/tipopeixe/:id', (req, res) => ControllerCRUD.update(req, res, TipoPeixe));
 routes.delete('/tipopeixe/:id', (req, res) => ControllerCRUD.delete(req, res, TipoPeixe));
 
-
 routes.get('/tipopeixe', (req, res) => ControllerGereric.findAll(req, res, TipoPeixe));
 
 module.exports = routes;

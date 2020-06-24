@@ -14,5 +14,6 @@ Peixe.init(connection);
 
 Racao.associate(connection.models);
 Peixe.associate(connection.models);
+TipoPeixe.associate(connection.models);
 
 module.exports = connection;

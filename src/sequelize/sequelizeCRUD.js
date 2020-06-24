@@ -1,5 +1,6 @@
 
 module.exports = {
+  
   async create(objCriacao, entity) {
     return await entity.create(objCriacao);
   },

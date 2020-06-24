@@ -18,7 +18,14 @@ module.exports = {
     returnErroDelete(res, erroReturn) {
         
         if (erroReturn) {
-            return res.status(200).json({ error: erroReturn, message: MESSAGE_ERROR_DELETE });
+            if(erroReturn.parent.code == 23503) {
+                return res.status(200).json({ error: erroReturn, message: 'Não é possivel excluir '+ erroReturn.table + 
+                                                                          ', pois possui '+ erroReturn.parent.table + 
+                                                                          ' cadastrado internamente.'});
+            }
+            else {
+                return res.status(200).json({ error: erroReturn, message: MESSAGE_ERROR_DELETE });
+            }
         }
 
         return res.status(400).json({ error: MESSAGE_ERROR_DELETE });

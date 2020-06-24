@@ -10,6 +10,9 @@ class TipoPeixe extends Model {
       tableName: 'TipoPeixe'
     })
   }
+  static associate(models) {
+    this.hasOne(models.Peixe, {foreignKey:  'idTipoPeixe', targetKey: 'id', as: 'tipoPeixe'})
+  }
 }
 
 module.exports = TipoPeixe;
