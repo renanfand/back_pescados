@@ -1,6 +1,6 @@
 const express = require('express')
-const ControllerCRUD = require('../controller/controllerCRUD')
-const ControllerGereric = require('../controller/controllerGeneric')
+const ControllerCRUD = require('../controllers/controllerCRUD')
+const ControllerGereric = require('../controllers/controllerGeneric')
 const TipoPeixe = require('../models/TipoPeixe')
 
 let routes = express.Router();

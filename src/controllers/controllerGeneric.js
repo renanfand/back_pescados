@@ -1,5 +1,5 @@
-const SequelizeGeneric = require('../sequelize/sequelizeGeneric');
-const Util = require('../Util/UtilDefault');
+const SequelizeGeneric = require('../sequelizes/sequelizeGeneric');
+const Util = require('../Utils/UtilDefault');
 
 module.exports = {
 

@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const dbConfig = require('../config/database');
+const dbConfig = require('../configs/database');
 const Agricultor = require('../models/Agricultor');
 const TipoPeixe = require('../models/TipoPeixe');
 const Racao = require('../models/Racao');

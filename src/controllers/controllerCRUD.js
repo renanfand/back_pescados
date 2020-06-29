@@ -1,12 +1,13 @@
-const CRUD = require('../sequelize/sequelizeCRUD');
-const Controller = require('../sequelize/sequelizeGeneric');
-const Util = require('../Util/UtilDefault');
+const CRUD = require('../sequelizes/sequelizeCRUD');
+const Util = require('../Utils/UtilDefault');
+const AgricultorBean = require('../beans/AgricultorBean')
 
 module.exports = {
 
   async create(req, res, entity) {
     try {
       
+      //new AgricultorBean(req);
       const objCriacao = req.body;
       const response = await CRUD.create(objCriacao, entity);
 
