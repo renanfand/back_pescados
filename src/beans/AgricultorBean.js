@@ -3,14 +3,17 @@ const Fild = require('./AbstractBean')
 class AgricultorBean {
 
     constructor(request) {
-        this.validate(request.body)
+        return this.bean(request.body);
     }
 
-    validate(obj) {
-        return [
-            new Fild("Nome", "nome", obj.nome, true),
-            new Fild("Tipo do agricultor", "tpAgricultor", obj.tpAgricultor, true)
-        ]
+    bean(obj) {
+        let { nome, tpAgricultor } = obj;
+
+        return new Fild([
+            ["Nome", "nome", nome, true],
+            ["Tipo do agricultor", "tpAgricultor", tpAgricultor, true]
+        ]);
+
     }
 }
 

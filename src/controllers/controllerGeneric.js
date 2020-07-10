@@ -8,14 +8,14 @@ module.exports = {
       const response = await SequelizeGeneric.findAll(entity, req.params);
 
       if (!response) {
-        return Util.returnErroShowAll(response);
+        return Util.errorShowAll(response);
       }
 
       return res.status(200).json(response);
 
     }
     catch (error) {
-      return Util.returnErroShowAll(res, error);
+      return Util.errorShowAll(res, error);
     }
   },
 
@@ -29,14 +29,14 @@ module.exports = {
       const response = await SequelizeGeneric.findAllAssociate(entity, idAgricultor, 'tipoPeixe');
 
       if (!response) {
-        return Util.returnErroShowAll(response);
+        return Util.errorShowAll(response);
       }
 
       return res.status(200).json(response);
 
     }
     catch (error) {
-      return Util.returnErroShowAll(res, error);
+      return Util.errorShowAll(res, error);
     }
   },
 

@@ -6,8 +6,17 @@ const MESSAGE_ERROR_UPDATE = "Ocorreu algum erro inesperado ao atualizar element
 const MESSAGE_ERROR_SHOW_ONE = "Elemento não encontrado.";
 
 module.exports = {
-    returnErroCreate(res, erroReturn) {
+
+    createSuccess(res, response) {
+        return res.status(201).json(response);
+    },
+
+    errorCreate(res, erroReturn) {
         
+        if(erroReturn.error) {
+            return res.status(400).json({ error: erroReturn.error, message: erroReturn.message });
+        }
+
         if (erroReturn) {
             return res.status(400).json({ error: erroReturn, message: MESSAGE_ERROR_CREATE });
         }
@@ -15,7 +24,7 @@ module.exports = {
         return res.status(400).json({ error: MESSAGE_ERROR_CREATE });
     },
 
-    returnErroDelete(res, erroReturn) {
+    errorDelete(res, erroReturn) {
         
         if (erroReturn) {
             if(erroReturn.parent.code == 23503) {
@@ -31,7 +40,7 @@ module.exports = {
         return res.status(400).json({ error: MESSAGE_ERROR_DELETE });
     },
 
-    returnErroShowAll(res, erroReturn) {
+    errorShowAll(res, erroReturn) {
         
         if (erroReturn) {
             return res.status(400).json({ error: erroReturn, message: MESSAGE_ERROR_SHOW_ALL});
@@ -40,7 +49,7 @@ module.exports = {
         return res.status(400).json({ error: MESSAGE_ERROR_SHOW_ALL });
     },
 
-    returnErroShowOne(res, erroReturn) {
+    errorRead(res, erroReturn) {
         
         if (erroReturn) {
             return res.status(400).json({ error: erroReturn, message: MESSAGE_ERROR_SHOW_ONE});
@@ -49,7 +58,7 @@ module.exports = {
         return res.status(400).json({ error: MESSAGE_ERROR_SHOW_ALL });
     },
 
-    returnErroUpdate(res, erroReturn) {
+    errorUpdate(res, erroReturn) {
         
         if (erroReturn) {
             return res.status(400).json({ error: erroReturn, message: MESSAGE_ERROR_UPDATE});
