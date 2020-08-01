@@ -7,8 +7,8 @@ const AgricultorBean = require('../beans/AgricultorBean')
 let routes = express.Router();
 
 //CRUD BASICO
-routes.post('/agricultor', (req, res) => ControllerCRUD.create(req, res, new AgricultorBean(req), Agricultor));
-routes.put('/agricultor/:id', (req, res) => ControllerCRUD.update(req, res, new AgricultorBean(req), Agricultor));
+routes.post('/agricultor', (req, res) => ControllerCRUD.create(req, res, Agricultor));
+routes.put('/agricultor/:id', (req, res) => ControllerCRUD.update(req, res, Agricultor));
 routes.delete('/agricultor/:id', (req, res) => ControllerCRUD.delete(req, res, Agricultor));
 
 routes.get('/agricultor/:id', (req, res) => ControllerCRUD.read(req, res, Agricultor));

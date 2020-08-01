@@ -3,11 +3,8 @@ const Util = require('../Utils/UtilDefault');
 
 module.exports = {
 
-  async create(req, res, bean, entity) {
-    try {
-      
-      validation(bean, res);
-      
+  async create(req, res, entity) {
+    try {      
       const response = await CRUD.create(req.body, entity);
 
       if (!response) {
@@ -39,10 +36,8 @@ module.exports = {
     }
   },
 
-  async update(req, res, bean, entity) {
-    try {
-      validation(bean, res);
-      
+  async update(req, res, entity) {
+    try {      
       const { id } = req.params;
       const response = await CRUD.update(req.body, id, entity);
 
