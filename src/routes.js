@@ -6,6 +6,9 @@ const PeixeRoutes = require('./routes/PeixeRoutes');
 
 let routes = express.Router();
 
+routes.get('/', (req, res) => {
+    res.send('BACK PESCADOS');
+});
 
 //ROTAS AGRICULTOR
 routes.post('/agricultor', AgricultorRoutes);
